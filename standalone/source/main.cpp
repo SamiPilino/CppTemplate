@@ -1,5 +1,5 @@
 #include <greeter/greeter.h>
-#include <greeter/version.h>
+#include <{#PROJECT_TITLE_LOWER#}/version.h>
 
 #include <cxxopts.hpp>
 #include <iostream>
@@ -36,7 +36,7 @@ auto main(int argc, char** argv) -> int {
   }
 
   if (result["version"].as<bool>()) {
-    std::cout << "Greeter, version " << GREETER_VERSION << std::endl;
+    std::cout << "{#PROJECT_TITLE#}, version " << {#PROJECT_TITLE_UPPER#}_VERSION << std::endl;
     return 0;
   }
 
@@ -46,8 +46,8 @@ auto main(int argc, char** argv) -> int {
     return 1;
   }
 
-  greeter::Greeter greeter(name);
-  std::cout << greeter.greet(langIt->second) << std::endl;
+  greeter::Greeter {#PROJECT_TITLE#}(name);
+  std::cout << {#PROJECT_TITLE#}.greet(langIt->second) << std::endl;
 
   return 0;
 }

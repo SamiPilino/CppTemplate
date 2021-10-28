@@ -1,21 +1,21 @@
 #include <doctest/doctest.h>
 #include <greeter/greeter.h>
-#include <greeter/version.h>
+#include <{#PROJECT_TITLE_LOWER#}/version.h>
 
 #include <string>
 
-TEST_CASE("Greeter") {
+TEST_CASE("{#PROJECT_TITLE#}") {
   using namespace greeter;
 
-  Greeter greeter("Tests");
+  Greeter {#PROJECT_TITLE#}("Tests");
 
-  CHECK(greeter.greet(LanguageCode::EN) == "Hello, Tests!");
-  CHECK(greeter.greet(LanguageCode::DE) == "Hallo Tests!");
-  CHECK(greeter.greet(LanguageCode::ES) == "¡Hola Tests!");
-  CHECK(greeter.greet(LanguageCode::FR) == "Bonjour Tests!");
+  CHECK({#PROJECT_TITLE#}.greet(LanguageCode::EN) == "Hello, Tests!");
+  CHECK({#PROJECT_TITLE#}.greet(LanguageCode::DE) == "Hallo Tests!");
+  CHECK({#PROJECT_TITLE#}.greet(LanguageCode::ES) == "¡Hola Tests!");
+  CHECK({#PROJECT_TITLE#}.greet(LanguageCode::FR) == "Bonjour Tests!");
 }
 
-TEST_CASE("Greeter version") {
-  static_assert(std::string_view(GREETER_VERSION) == std::string_view("1.0"));
-  CHECK(std::string(GREETER_VERSION) == std::string("1.0"));
+TEST_CASE("{#PROJECT_TITLE#} version") {
+  static_assert(std::string_view({#PROJECT_TITLE_UPPER#}_VERSION) == std::string_view("0.1"));
+  CHECK(std::string({#PROJECT_TITLE_UPPER#}_VERSION) == std::string("0.1"));
 }
